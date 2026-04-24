@@ -1,4 +1,4 @@
-const APP_DOWNLOAD_URL = "PEGA_AQUI_EL_ENLACE_DE_DESCARGA";
+const APP_DOWNLOAD_URL = "https://firebasestorage.googleapis.com/v0/b/ido-pay-2b46e.appspot.com/o/app%2Fshield-vpn.apk?alt=media&token=a7f9971e-d242-484c-93f3-c758d9b2a599";
 
 const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
