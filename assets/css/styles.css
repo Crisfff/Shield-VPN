@@ -1368,3 +1368,24 @@ input {
     width: 100%;
   }
 }
+
+.btn-download {
+  background: linear-gradient(135deg, rgba(102, 240, 195, 0.95), rgba(215, 255, 95, 0.95));
+  color: #0d1016;
+  box-shadow:
+    0 14px 34px rgba(102, 240, 195, 0.22),
+    0 0 34px rgba(124, 60, 255, 0.16);
+}
+
+.btn-download:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 20px 44px rgba(102, 240, 195, 0.3),
+    0 0 42px rgba(124, 60, 255, 0.24);
+}
+
+@media (max-width: 640px) {
+  .nav-actions .btn-download {
+    display: none;
+  }
+}
