@@ -1,5 +1,15 @@
+const APP_DOWNLOAD_URL = "PEGA_AQUI_EL_ENLACE_DE_DESCARGA";
+
 const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
+
+const downloadButtons = document.querySelectorAll(".download-app");
+
+downloadButtons.forEach((button) => {
+  button.setAttribute("href", APP_DOWNLOAD_URL);
+  button.setAttribute("target", "_blank");
+  button.setAttribute("rel", "noopener noreferrer");
+});
 
 if (menuBtn && navLinks) {
   menuBtn.addEventListener("click", () => {
