@@ -27,7 +27,6 @@ window.addEventListener("scroll", () => {
   }
 });
 
-/* Animación suave de aparición */
 const revealElements = document.querySelectorAll(
   ".hero-text, .hero-visual, .stat-card, .benefit-card, .security-content, .security-panel, .plan-card, .cta"
 );
