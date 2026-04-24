@@ -120,13 +120,26 @@ input {
 }
 
 .logo-icon {
-  width: 38px;
-  height: 38px;
-  border-radius: 14px;
+  width: 42px;
+  height: 42px;
+  border-radius: 16px;
   display: grid;
   place-items: center;
-  background: linear-gradient(135deg, rgba(124, 60, 255, 0.8), rgba(102, 240, 195, 0.35));
-  box-shadow: 0 0 30px rgba(124, 60, 255, 0.4);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(102, 240, 195, 0.32), transparent 62%),
+    linear-gradient(135deg, rgba(124, 60, 255, 0.45), rgba(102, 240, 195, 0.22));
+  box-shadow:
+    0 0 28px rgba(102, 240, 195, 0.28),
+    0 0 38px rgba(124, 60, 255, 0.28);
+}
+
+.logo-icon img {
+  width: 82%;
+  height: 82%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 0 8px rgba(102, 240, 195, 0.45));
 }
 
 .nav-links {
@@ -425,7 +438,6 @@ input {
   color: #f7f5ff;
 }
 
-/* Barra falsa de notificaciones eliminada */
 .vpn-ui::before,
 .vpn-ui::after {
   display: none;
@@ -454,16 +466,26 @@ input {
 }
 
 .vpn-brand-icon {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   display: grid;
   place-items: center;
-  font-size: 22px;
-  border-radius: 14px;
+  border-radius: 15px;
+  overflow: hidden;
   background:
-    radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.65), transparent 18%),
-    linear-gradient(135deg, #6affd2, #1bcebb 45%, #55d7ff);
-  box-shadow: 0 0 24px rgba(86, 255, 211, 0.32);
+    radial-gradient(circle at 50% 50%, rgba(102, 240, 195, 0.28), transparent 62%),
+    linear-gradient(135deg, rgba(124, 60, 255, 0.55), rgba(102, 240, 195, 0.25));
+  box-shadow:
+    0 0 24px rgba(86, 255, 211, 0.38),
+    0 0 32px rgba(124, 60, 255, 0.24);
+}
+
+.vpn-brand-icon img {
+  width: 84%;
+  height: 84%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 0 8px rgba(102, 240, 195, 0.45));
 }
 
 .vpn-status-block {
@@ -621,7 +643,6 @@ input {
   color: rgba(214, 209, 229, 0.72);
 }
 
-/* Renueva e ID eliminados */
 .vpn-footer-info {
   display: none;
 }
@@ -708,6 +729,16 @@ input {
   border-radius: 50%;
   background: var(--green);
   box-shadow: 0 0 22px var(--green);
+}
+
+.speed-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: rgba(215, 255, 95, 0.12);
+  color: var(--lime);
 }
 
 /* STATS */
@@ -833,9 +864,25 @@ input {
   border-radius: 20px;
   display: grid;
   place-items: center;
-  background: rgba(124, 60, 255, 0.22);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(102, 240, 195, 0.25), transparent 62%),
+    rgba(124, 60, 255, 0.22);
   font-size: 28px;
   margin-bottom: 28px;
+}
+
+.benefit-icon img {
+  width: 78%;
+  height: 78%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 0 8px rgba(102, 240, 195, 0.38));
+}
+
+.benefit-speed,
+.benefit-world {
+  color: var(--lime);
 }
 
 .benefit-card h3 {
@@ -1169,8 +1216,8 @@ input {
   }
 
   .logo-icon {
-    width: 34px;
-    height: 34px;
+    width: 36px;
+    height: 36px;
   }
 
   .btn-small {
@@ -1233,9 +1280,8 @@ input {
   }
 
   .vpn-brand-icon {
-    width: 28px;
-    height: 28px;
-    font-size: 18px;
+    width: 30px;
+    height: 30px;
   }
 
   .vpn-status-block {
