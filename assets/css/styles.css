@@ -14,6 +14,7 @@
   --purple: #7c3cff;
   --purple-soft: #9b6cff;
   --lime: #d7ff5f;
+  --mint: #66f0c3;
   --green: #6dffb3;
   --border: rgba(255, 255, 255, 0.11);
   --shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
@@ -100,6 +101,11 @@ input {
   box-shadow: 0 18px 70px rgba(0, 0, 0, 0.35);
 }
 
+.header.scrolled .navbar {
+  background: rgba(9, 7, 15, 0.9);
+  box-shadow: 0 18px 70px rgba(0, 0, 0, 0.55);
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -119,7 +125,7 @@ input {
   border-radius: 14px;
   display: grid;
   place-items: center;
-  background: linear-gradient(135deg, rgba(124, 60, 255, 0.8), rgba(215, 255, 95, 0.2));
+  background: linear-gradient(135deg, rgba(124, 60, 255, 0.8), rgba(102, 240, 195, 0.35));
   box-shadow: 0 0 30px rgba(124, 60, 255, 0.4);
 }
 
@@ -164,9 +170,20 @@ input {
   height: 2px;
   background: var(--text);
   border-radius: 10px;
+  transition: 0.25s ease;
 }
 
+.menu-btn.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
 
+.menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-btn.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
 
 /* BUTTONS */
 
@@ -346,7 +363,7 @@ input {
 
 .hero-visual {
   position: relative;
-  min-height: 620px;
+  min-height: 650px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -354,11 +371,11 @@ input {
 
 .phone {
   width: 315px;
-  height: 640px;
+  height: 650px;
   padding: 12px;
   border-radius: 48px;
   background:
-    linear-gradient(135deg, #24212a, #07070b 45%, #2b2931);
+    linear-gradient(135deg, #25242c, #06060a 45%, #32313a);
   box-shadow:
     var(--shadow),
     inset 0 0 0 1px rgba(255, 255, 255, 0.12);
@@ -392,139 +409,288 @@ input {
   width: 100%;
   height: 100%;
   border-radius: 38px;
-  background:
-    radial-gradient(circle at 50% 20%, rgba(124, 60, 255, 0.35), transparent 35%),
-    linear-gradient(180deg, #11101a, #07070d);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 28px 22px;
   overflow: hidden;
   position: relative;
 }
 
-.phone-screen::before {
-  content: "";
-  position: absolute;
-  top: 13px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 96px;
-  height: 28px;
-  background: #020207;
-  border-radius: 999px;
-  z-index: 2;
+/* SHIELD VPN UI DENTRO DEL MÓVIL */
+
+.phone-screen.vpn-ui {
+  padding: 0 18px 22px;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(75, 255, 193, 0.16), transparent 18%),
+    radial-gradient(circle at 50% 18%, rgba(90, 60, 255, 0.14), transparent 45%),
+    linear-gradient(180deg, #121129 0%, #0b0520 52%, #030307 100%);
+  color: #f7f5ff;
 }
 
-.phone-top {
-  margin-top: 38px;
+.vpn-ui::before {
+  content: "11:47 | 12,3KB/s";
+  position: absolute;
+  top: 10px;
+  left: 17px;
+  z-index: 7;
+  font-size: 10px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.vpn-ui::after {
+  content: "VPN  99";
+  position: absolute;
+  top: 10px;
+  right: 17px;
+  z-index: 7;
+  font-size: 10px;
+  font-weight: 900;
+  color: rgba(196, 255, 124, 0.78);
+}
+
+.vpn-topbar {
+  position: relative;
+  z-index: 5;
+  padding-top: 56px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
-.phone-logo {
-  font-weight: 900;
-  letter-spacing: -0.05em;
-  font-size: 20px;
-}
-
-.phone-logo span:last-child {
-  color: var(--purple-soft);
-}
-
-.phone-menu {
-  display: grid;
-  gap: 5px;
-}
-
-.phone-menu span {
-  width: 24px;
-  height: 3px;
-  background: var(--text);
-  border-radius: 10px;
-  opacity: 0.75;
-}
-
-.vpn-circle {
-  margin: 58px auto 28px;
-  width: 188px;
-  height: 188px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background:
-    radial-gradient(circle, rgba(215, 255, 95, 0.16), transparent 58%),
-    conic-gradient(from 20deg, var(--lime), var(--purple), var(--green), var(--lime));
-  box-shadow: 0 0 60px rgba(124, 60, 255, 0.35);
-}
-
-.circle-ring {
-  width: 142px;
-  height: 142px;
-  border-radius: 50%;
-  background: #090812;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.13);
-}
-
-.circle-ring span {
-  font-size: 42px;
-  font-weight: 900;
-  color: var(--lime);
-  letter-spacing: -0.08em;
-}
-
-.phone h2 {
-  text-align: center;
-  font-size: 26px;
-  letter-spacing: -0.05em;
-}
-
-.phone p {
-  margin: 10px auto 0;
-  text-align: center;
-  font-size: 13px;
-  line-height: 1.5;
-  color: var(--muted);
-}
-
-.phone-stats {
-  margin-top: 28px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.vpn-brand {
+  display: flex;
+  align-items: center;
   gap: 10px;
 }
 
-.phone-stats div {
-  padding: 16px;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.075);
-  border: 1px solid var(--border);
-}
-
-.phone-stats span {
-  display: block;
-  font-size: 11px;
-  color: var(--muted);
-}
-
-.phone-stats strong {
-  display: block;
-  margin-top: 6px;
-  font-size: 15px;
-}
-
-.phone-button {
-  width: 100%;
-  height: 52px;
-  margin-top: 18px;
-  border: none;
-  border-radius: 999px;
-  background: linear-gradient(135deg, var(--lime), #f1ff9a);
-  color: #121018;
+.vpn-brand-text {
+  font-size: 22px;
   font-weight: 900;
-  cursor: pointer;
+  letter-spacing: -0.07em;
 }
+
+.vpn-brand-icon {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.65), transparent 18%),
+    linear-gradient(135deg, #6affd2, #1bcebb 45%, #55d7ff);
+  box-shadow: 0 0 24px rgba(86, 255, 211, 0.32);
+}
+
+.vpn-status-block {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  margin-top: 92px;
+}
+
+.vpn-status-block h2 {
+  font-size: 28px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -0.07em;
+  color: #d9fff0;
+  text-shadow: 0 0 22px rgba(102, 240, 195, 0.16);
+}
+
+.vpn-status-block p {
+  margin-top: 18px;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(224, 218, 241, 0.72);
+}
+
+.vpn-location {
+  width: 146px;
+  height: 48px;
+  margin: 26px auto 0;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.86);
+  background: rgba(255, 255, 255, 0.105);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.035),
+    0 14px 30px rgba(0, 0, 0, 0.18);
+}
+
+.vpn-center-area {
+  position: relative;
+  z-index: 5;
+  width: 270px;
+  height: 270px;
+  margin: 86px auto 0;
+  display: grid;
+  place-items: center;
+}
+
+.vpn-ring {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.ring-outer {
+  width: 262px;
+  height: 262px;
+  border: 1px solid rgba(77, 255, 209, 0.26);
+  box-shadow:
+    0 0 28px rgba(77, 255, 209, 0.08),
+    inset 0 0 34px rgba(64, 255, 205, 0.04);
+}
+
+.ring-inner {
+  width: 222px;
+  height: 222px;
+  border: 5px solid transparent;
+  background:
+    linear-gradient(#0b0520, #0b0520) padding-box,
+    conic-gradient(
+      from 210deg,
+      rgba(97, 242, 197, 0.12),
+      rgba(97, 242, 197, 1),
+      rgba(210, 255, 129, 1),
+      rgba(97, 242, 197, 0.2),
+      rgba(97, 242, 197, 0.08)
+    ) border-box;
+  box-shadow:
+    0 0 34px rgba(75, 255, 195, 0.16),
+    inset 0 0 52px rgba(10, 4, 28, 0.92);
+}
+
+.ring-inner::before {
+  content: "";
+  position: absolute;
+  inset: 21px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 46%, rgba(27, 18, 63, 0.92), #0a061b 66%);
+  box-shadow:
+    inset 0 -35px 55px rgba(0, 0, 0, 0.72),
+    0 26px 34px rgba(0, 0, 0, 0.38);
+}
+
+.vpn-switch {
+  position: relative;
+  z-index: 4;
+  width: 116px;
+  height: 238px;
+  border-radius: 62px;
+  background:
+    linear-gradient(180deg, #b7ff95 0%, #73f2a7 42%, #35d8b3 100%);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.48),
+    0 18px 35px rgba(0, 0, 0, 0.32),
+    inset 0 18px 25px rgba(255, 255, 255, 0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.vpn-switch-top-line {
+  width: 31px;
+  height: 7px;
+  margin-top: 62px;
+  border-radius: 999px;
+  background: rgba(12, 70, 73, 0.72);
+}
+
+.vpn-switch-label {
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 900;
+  color: rgba(3, 18, 24, 0.9);
+  letter-spacing: -0.04em;
+}
+
+.vpn-switch-power {
+  margin-top: 14px;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 48px;
+  line-height: 1;
+  color: #030507;
+  background: rgba(0, 0, 0, 0.12);
+  box-shadow:
+    inset 0 8px 14px rgba(255, 255, 255, 0.1),
+    0 12px 18px rgba(0, 0, 0, 0.08);
+}
+
+.vpn-disconnect-text {
+  position: relative;
+  z-index: 5;
+  margin-top: 62px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(214, 209, 229, 0.72);
+}
+
+.vpn-footer-info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 34px;
+  z-index: 5;
+  text-align: center;
+}
+
+.vpn-renew {
+  font-size: 14px;
+  font-weight: 900;
+  color: #6ff3c6;
+}
+
+.vpn-id {
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 800;
+  color: rgba(199, 196, 219, 0.56);
+}
+
+.vpn-map-bg {
+  position: absolute;
+  left: 11px;
+  right: 11px;
+  bottom: 94px;
+  height: 190px;
+  z-index: 1;
+  opacity: 0.28;
+  background:
+    radial-gradient(circle at 12% 45%, rgba(92, 232, 209, 0.45) 0 2px, transparent 3px),
+    radial-gradient(circle at 23% 36%, rgba(92, 232, 209, 0.45) 0 2px, transparent 3px),
+    radial-gradient(circle at 35% 54%, rgba(92, 232, 209, 0.45) 0 2px, transparent 3px),
+    radial-gradient(circle at 48% 38%, rgba(92, 232, 209, 0.45) 0 2px, transparent 3px),
+    radial-gradient(circle at 63% 55%, rgba(92, 232, 209, 0.45) 0 2px, transparent 3px),
+    radial-gradient(circle at 76% 43%, rgba(92, 232, 209, 0.45) 0 2px, transparent 3px),
+    radial-gradient(circle at 87% 57%, rgba(92, 232, 209, 0.45) 0 2px, transparent 3px),
+    linear-gradient(25deg, transparent 16%, rgba(76, 185, 188, 0.18) 17%, transparent 18%),
+    linear-gradient(-15deg, transparent 32%, rgba(76, 185, 188, 0.16) 33%, transparent 34%),
+    linear-gradient(115deg, transparent 46%, rgba(76, 185, 188, 0.16) 47%, transparent 48%);
+}
+
+.vpn-map-bg::before {
+  content: "";
+  position: absolute;
+  inset: 20px 0 0;
+  background:
+    radial-gradient(ellipse at 22% 50%, rgba(65, 178, 184, 0.5), transparent 24%),
+    radial-gradient(ellipse at 47% 50%, rgba(65, 178, 184, 0.45), transparent 26%),
+    radial-gradient(ellipse at 75% 48%, rgba(65, 178, 184, 0.5), transparent 24%);
+  filter: blur(6px);
+}
+
+/* FLOATING CARDS */
 
 .floating-card {
   position: absolute;
@@ -925,6 +1091,19 @@ input {
   font-size: 14px;
 }
 
+/* ANIMATIONS */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* RESPONSIVE */
 
 @media (max-width: 980px) {
@@ -980,7 +1159,7 @@ input {
   }
 
   .hero-visual {
-    min-height: 600px;
+    min-height: 650px;
   }
 
   .stats-section,
@@ -1053,60 +1232,126 @@ input {
   }
 
   .hero-visual {
-    min-height: 520px;
+    min-height: 560px;
     margin-top: 20px;
   }
 
   .phone {
     width: 255px;
-    height: 520px;
+    height: 530px;
     border-radius: 40px;
     transform: rotate(-10deg);
   }
 
   .phone-screen {
     border-radius: 30px;
-    padding: 22px 16px;
   }
 
-  .phone-screen::before {
-    width: 82px;
-    height: 24px;
+  .phone-screen.vpn-ui {
+    padding: 0 14px 18px;
   }
 
-  .phone-top {
-    margin-top: 34px;
+  .vpn-ui::before,
+  .vpn-ui::after {
+    font-size: 8px;
+    top: 9px;
   }
 
-  .phone-logo {
-    font-size: 17px;
+  .vpn-topbar {
+    padding-top: 48px;
   }
 
-  .vpn-circle {
-    width: 148px;
-    height: 148px;
-    margin-top: 38px;
+  .vpn-brand-text {
+    font-size: 18px;
   }
 
-  .circle-ring {
-    width: 112px;
-    height: 112px;
+  .vpn-brand-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
   }
 
-  .circle-ring span {
-    font-size: 34px;
+  .vpn-status-block {
+    margin-top: 76px;
   }
 
-  .phone h2 {
-    font-size: 21px;
+  .vpn-status-block h2 {
+    font-size: 25px;
   }
 
-  .phone-stats {
-    margin-top: 20px;
+  .vpn-status-block p {
+    font-size: 11px;
+    margin-top: 15px;
   }
 
-  .phone-stats div {
-    padding: 12px;
+  .vpn-location {
+    width: 136px;
+    height: 44px;
+    font-size: 15px;
+    margin-top: 22px;
+  }
+
+  .vpn-center-area {
+    width: 220px;
+    height: 220px;
+    margin-top: 68px;
+  }
+
+  .ring-outer {
+    width: 218px;
+    height: 218px;
+  }
+
+  .ring-inner {
+    width: 186px;
+    height: 186px;
+    border-width: 4px;
+  }
+
+  .vpn-switch {
+    width: 94px;
+    height: 198px;
+    border-radius: 54px;
+  }
+
+  .vpn-switch-top-line {
+    width: 27px;
+    height: 6px;
+    margin-top: 51px;
+  }
+
+  .vpn-switch-label {
+    font-size: 14px;
+    margin-top: 7px;
+  }
+
+  .vpn-switch-power {
+    width: 60px;
+    height: 60px;
+    font-size: 40px;
+    margin-top: 12px;
+  }
+
+  .vpn-disconnect-text {
+    margin-top: 46px;
+    font-size: 14px;
+  }
+
+  .vpn-footer-info {
+    bottom: 26px;
+  }
+
+  .vpn-renew {
+    font-size: 12px;
+  }
+
+  .vpn-id {
+    font-size: 11px;
+  }
+
+  .vpn-map-bg {
+    bottom: 78px;
+    height: 155px;
   }
 
   .floating-card {
@@ -1158,36 +1403,4 @@ input {
   .cta-buttons .btn {
     width: 100%;
   }
-}
-
-.header.scrolled .navbar {
-  background: rgba(9, 7, 15, 0.9);
-  box-shadow: 0 18px 70px rgba(0, 0, 0, 0.55);
-}
-
-.menu-btn.active span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-
-.menu-btn.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-btn.active span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
-
-.menu-btn span {
-  transition: 0.25s ease;
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-
-.reveal.show {
-  opacity: 1;
-  transform: translateY(0);
 }
